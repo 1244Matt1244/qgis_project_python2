@@ -1,0 +1,28 @@
+services:
+  toolkit:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: qgis-toolkit:dev
+    container_name: qgis-toolkit
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+      - ./docs:/app/docs
+      - ./output:/app/output
+    environment:
+      QGIS_TOOLKIT_LOG_LEVEL: INFO
+      QGIS_TOOLKIT_LOG_FORMAT: json
+    command: ["python", "-m", "pytest", "-v"]
+
+  toolkit-cli:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: qgis-toolkit:dev
+    container_name: qgis-toolkit-cli
+    volumes:
+      - ./output:/app/output
+    profiles: ["cli"]
+    entrypoint: ["qgis-toolkit"]
+    command: ["--help"]
