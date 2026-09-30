@@ -1,7 +1,7 @@
 """Statistical functions for geospatial analysis."""
 
+from collections.abc import Sequence
 from dataclasses import dataclass
-from typing import Sequence
 
 import numpy as np
 

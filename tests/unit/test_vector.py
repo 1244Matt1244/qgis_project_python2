@@ -1,6 +1,5 @@
 """Unit tests for qgis_toolkit.core.vector."""
 
-import math
 
 import pytest
 from shapely.geometry import MultiPolygon, Point, Polygon

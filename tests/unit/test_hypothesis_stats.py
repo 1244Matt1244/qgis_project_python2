@@ -1,12 +1,10 @@
 """Property-based tests using Hypothesis."""
 
-import numpy as np
 import pytest
 from hypothesis import given, settings
 from hypothesis import strategies as st
 
 from qgis_toolkit.core.stats import summarize
-from qgis_toolkit.exceptions import ValidationError
 
 pytestmark = pytest.mark.unit
 
